@@ -1,0 +1,78 @@
+container .inner {
+    padding: 0 48px;
+}
+
+container div {
+    padding: 0;
+}
+
+container {
+    overflow: auto;
+}
+
+.post {
+    background: #9b2640;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.post p {
+    margin: 0;
+    font-size: 22px;
+}
+
+.post .tag {
+    margin: 0;
+    font-family: "Nunito", serif;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.postheader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postfooter .tag, .idx {
+    margin: 0;
+    font-family: "Nunito", serif;
+    color: white;
+    font-size: 20px;
+}
+
+.postfooter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+.postfooter .from, .likes {
+    margin: 0;
+    font-family: "Nunito", serif;
+    color: #d6d6d6;
+    font-size: 18px;
+}
+
+.postfooter .from {
+    font-style: italic;
+}
+
+.postfooter .likes {
+    font-weight: bold;
+}
+
+.post_container {
+    column-count: 2;
+}
+
+.tagc {
+    margin: 0;
+    font-family: "Nunito", serif;
+    color: white;
+    font-size: 20px;
+}

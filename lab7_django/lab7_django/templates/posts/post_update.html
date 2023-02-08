@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Добавление поста</title>
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+        <link href="{% static 'css/publish.css' %}" rel="stylesheet">
+        <link href="{% static 'css/header.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% include 'main/header.html' %}
+        <container>
+            <div>
+                {% if source == "publish" %}
+                    <h3>Добавление поста</h3>
+                {% else %}
+                    <h3>Изменение поста</h3>
+                {% endif %}
+                <form method="post">
+                    <input type="submit" hidden>
+                    {% csrf_token %}
+                    <div id="nick_block">
+                        <label>Никнейм: </label>
+                        {{ form.nickname }}
+                    </div>
+                    <div id="nick_block">
+                        <label>Заголовок: </label>
+                        {{ form.header }}
+                    </div>
+                    <div id="text_block">
+                        <label>Текст: </label>
+                        {{ form.text }}
+                    </div>
+                    <button id="pub" type="submit">Опубликовать</button>
+                    {{ err }}
+                </form>
+            </div>
+        </container>
+    </body>
+</html>

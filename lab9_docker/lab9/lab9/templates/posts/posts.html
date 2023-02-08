@@ -1,0 +1,48 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Посты</title>
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+        <link href="{% static 'css/posts.css' %}" rel="stylesheet">
+        <link href="{% static 'css/header.css' %}" rel="stylesheet">
+        <link href="{% static 'css/post_admin.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% include 'main/header.html' %}
+        <container>
+            <div class="inner">
+                <h3>Посты</h3>
+                {% if role == "author" or role == "admin" %}
+                    <a id="add" href="{% url 'post_create' %}">➕ &nbsp;Добавление поста</a>
+                {% endif %}
+                <div class="post_container">
+                    {% for key, value in result.items %}
+                        <div class="post">
+                            <div class="postheader">
+                                <h4 class="tag">{{ value.header }}</h4>
+                                <h4 class="idx">Пост №{{ key }}</h4>
+                            </div>
+                            <p>{{ value.text }}</p>
+                            <div class="postfooter">
+                                <h4 class="from">{{ value.nickname }}</h4>
+                                <div style="display: flex; flex-direction: row; align-items: center;">
+                                    <img src="{% static 'images/icons/menu/likes.svg'%}" style="width: 32px; margin-right: 4px;"/>
+                                    <h4 class="likes">{{ value.likes }}</h4>
+                                </div>
+                            </div>
+                            <div class="posttags" style="display: flex; flex-direction: row; align-items: center; margin-top: 16px;">
+                                <h4 class="tagc" style="margin-right: 8px;">Теги:</h4>
+                                {% if value.tags %}
+                                    <p style="margin: 0; padding: 0;">{{value.tags}}</p>
+                                {% else %}
+                                    <i class="tagc">Отсутствуют</i>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </container>
+    </body>
+</html>

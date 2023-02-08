@@ -1,0 +1,15 @@
+#nick_inp, #passwd_inp, #passwd_inp_conf {
+    font-size: 24px;
+}
+
+#nick_inp {
+    width: 22.5%;
+}
+
+#passwd_inp {
+    width: 23.3%;
+}
+
+#passwd_inp_conf {
+    width: 18.5%;
+}

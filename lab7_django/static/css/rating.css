@@ -1,0 +1,37 @@
+.actions a {
+    border: 0;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #1f1f1f;
+}
+
+#actions_holder {
+    padding: 0;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: start;
+}
+
+
+.actions #edit {
+    background-color: #2db95c;
+}
+
+.actions #edit:hover {
+    background-color: #36d86c;
+}
+
+.actions #remove {
+    background-color: #f7566b;
+    width: 90.3%;
+}
+
+.actions #remove:hover {
+    background-color: #ff1938;
+}

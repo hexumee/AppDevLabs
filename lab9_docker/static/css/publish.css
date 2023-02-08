@@ -1,0 +1,59 @@
+form div {
+    padding: 0;
+}
+
+container {
+    overflow: auto;
+}
+
+#nick_block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+#nick_block label {
+    font-size: 22px;
+    font-family: "Nunito", serif;
+    color: white;
+    margin-right: 8px;
+}
+
+#nick_block textarea {
+    width: 27.3%;
+    height: 36px;
+    font-size: 20px;
+}
+
+#text_block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+}
+
+#text_block label {
+    font-size: 22px;
+    font-family: "Nunito", serif;
+    color: white;
+}
+
+#text_block textarea {
+    width: 33%;
+    font-size: 18px;
+}
+
+#pub {
+    border: 0;
+    background-color: #1cac78;
+    color: white;
+    font-family: "Nunito", serif;
+    font-size: 18px;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+#pub:hover {
+    background-color: #1dd390;
+}

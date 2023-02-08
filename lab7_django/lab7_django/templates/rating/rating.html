@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Рейтинг</title>
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+        <link href="{% static 'css/rating.css' %}" rel="stylesheet">
+        <link href="{% static 'css/header.css' %}" rel="stylesheet">
+        <link href="{% static 'css/post_admin.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% include 'main/header.html' %}
+        <container>
+            <div>
+                <h3>Рейтинг пользователей</h3>
+                <a id="add" href="{% url 'rating_create' %}">➕ &nbsp;Добавление рейтинга</a>
+                <table>
+                    <tr>
+                        <td class="heading">
+                            Никнейм
+                        </td>
+                        <td class="heading">
+                            Сумма лайков
+                        </td>
+                        <td class="heading">
+                            Действия
+                        </td>
+                    </tr>
+                    {% for item in result %}
+                        <tr>
+                            <td class="content">
+                                {{ item.nickname }}
+                            </td>
+                            <td class="content">
+                                {{ item.likes_sum }}
+                            </td>
+                            <td id="actions_holder">
+                                <div class="actions">
+                                    <a id="edit" href="{% url 'rating_update' item.nickname %}">✏️ &nbsp;Редактирование</a>
+                                    <a id="remove" href="{% url 'rating_delete' item.nickname %}">🗑️ &nbsp;Удаление</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </container>
+    </body>
+</html>
