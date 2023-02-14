@@ -53,7 +53,7 @@ def posts(request):
     print(tagged)
 
     for post in posts:
-        posted.update({post.pid: {"nickname": post.nickname, "header": post.header, "text": post.text, "likes": post.likes, "tags": ", ".join(tagged[post.pid]) if post.pid in tagged.keys() else None}})
+        posted.update({post.pid: {"nickname": post.nickname, "header": post.header, "text": post.text, "likes": post.likes_cnt, "tags": ", ".join(tagged[post.pid]) if post.pid in tagged.keys() else None}})
 
     return render(request, "posts/posts.html", {"role": get_role(request.user), "result": posted})
 

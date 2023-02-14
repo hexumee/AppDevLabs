@@ -17,7 +17,8 @@ class Users(Model):
         return "/users"
 
 class Rating(Model):
-    nickname = TextField(verbose_name="Никнейм", primary_key=True)
+    #nickname = TextField(verbose_name="Никнейм", primary_key=True)
+    nickname = OneToOneField(Users, on_delete=CASCADE, primary_key=True, verbose_name="Никнейм")
     likes_sum = IntegerField(verbose_name="Рейтинг", default=0)
 
     class Meta:
@@ -30,9 +31,10 @@ class Rating(Model):
 class Post(Model):
     pid = AutoField(verbose_name="Идентификатор поста", primary_key=True)
     nickname = TextField(verbose_name="Никнейм")
+    #nickname = ForeignKey(Users, on_delete = CASCADE, verbose_name="Никнейм")
     header = TextField(verbose_name="Заголовок")
     text = TextField(verbose_name="Текст")
-    likes = IntegerField(verbose_name="Количество лайков", default=0)
+    likes_cnt = IntegerField(verbose_name="Количество лайков", default=0)
 
     class Meta:
         verbose_name = "Пост"
@@ -43,7 +45,8 @@ class Post(Model):
 
 class Tags(Model):
     idx = AutoField(verbose_name="Индекс", primary_key=True)
-    pid = IntegerField(verbose_name="Идентификатор поста")
+    #pid = IntegerField(verbose_name="Идентификатор поста")
+    pid = ForeignKey(Post, on_delete=CASCADE, verbose_name="Идентификатор поста")
     tag = TextField(verbose_name="Тег")
 
     class Meta:
@@ -55,7 +58,8 @@ class Tags(Model):
 
 class Likes(Model):
     idx = AutoField(verbose_name="Индекс", primary_key=True)
-    post = IntegerField(verbose_name="Номер поста")
+    #post = IntegerField(verbose_name="Номер поста")
+    post = ManyToManyField(Post)
     nickname = TextField(verbose_name="Никнейм")
 
     class Meta:
